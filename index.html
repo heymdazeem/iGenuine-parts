@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b10">
+<title>i Genuine Part — Premium iPhone Parts</title>
+<style>
+:root{--bg:#090b10;--panel:#11151d;--panel2:#171d28;--text:#f5f7fb;--muted:#9aa5b5;--line:#252d3a;--accent:#b7f36b;--accent2:#d9ff9d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(9,11,16,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:21px;font-weight:850}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}
+.navlinks a:hover{color:white}
+.cartbtn,.primary,.secondary{border:0;border-radius:999px;padding:12px 18px;font-weight:750}
+.cartbtn{background:var(--panel2);color:white;border:1px solid var(--line)}
+.cartbtn b{color:var(--accent)}
+.hero{padding:74px 0 54px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.eyebrow{color:var(--accent);font-size:12px;font-weight:850;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:.99;letter-spacing:-3px;margin:18px 0}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:540px;color:var(--muted);font-size:17px;line-height:1.7}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.primary{background:var(--accent);color:#11170a;display:inline-block}
+.secondary{background:transparent;color:white;border:1px solid var(--line);display:inline-block}
+.hero-art{min-height:350px;border:1px solid #2a3443;border-radius:28px;background:radial-gradient(circle at 50% 38%,#29394a,#10141c 72%);display:grid;place-items:center;position:relative;overflow:hidden}
+.phone{width:154px;height:280px;border-radius:32px;border:5px solid #778493;background:linear-gradient(145deg,#3e5264,#111923);box-shadow:0 25px 70px #000b;position:relative;z-index:1;transform:rotate(-9deg)}
+.phone:before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:58px;height:14px;border-radius:20px;background:#080b10}
+.camera{position:absolute;top:28px;left:15px;display:grid;grid-template-columns:repeat(2,24px);gap:7px}
+.camera i{width:24px;height:24px;border-radius:50%;background:#111923;border:2px solid #65717d}
+.art-label{position:absolute;bottom:22px;right:22px;color:#a8b4c4;font-size:11px;letter-spacing:2px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:62px}
+.perk{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.perk strong{display:block;font-size:14px;margin-bottom:5px}
+.perk span{font-size:12px;color:var(--muted)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.section-head h2{font-size:32px;margin:8px 0 0}
+.section-head p{color:var(--muted);font-size:14px}
+.shop{padding:12px 0 80px}
+.filters{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:12px;margin-bottom:20px}
+.field{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:13px;color:white;padding:14px;outline:none}
+.field:focus{border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.product{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}
+.product:hover{transform:translateY(-4px);border-color:#56654a}
+.product-visual{height:168px;display:grid;place-items:center;background:radial-gradient(circle,#283644,#151b25 70%);position:relative}
+.part-icon{font-size:64px}
+.tag{position:absolute;top:12px;left:12px;font-size:10px;background:#263327;color:var(--accent);padding:6px 9px;border-radius:99px}
+.product-info{padding:16px}
+.product-info small{color:var(--muted);font-size:11px}
+.product-info h3{font-size:16px;margin:8px 0}
+.fit{color:#aeb8c6;font-size:12px}
+.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:8px}
+.price{font-size:18px;font-weight:850}
+.add{border:1px solid #4b5b40;background:#1e2a1a;color:var(--accent);padding:9px 12px;border-radius:10px;font-size:12px;font-weight:800}
+.empty{grid-column:1/-1;text-align:center;padding:50px;color:var(--muted);border:1px dashed var(--line);border-radius:18px}
+.about{padding:58px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d1118}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.about h2{font-size:34px}
+.about p{color:var(--muted);line-height:1.8}
+.about-card{padding:26px;background:var(--panel);border:1px solid var(--line);border-radius:20px}
+.about-card li{margin:13px 0;color:#c8d0dc}
+footer{padding:30px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.overlay{position:fixed;inset:0;background:#0009;z-index:40;opacity:0;pointer-events:none;transition:.2s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;z-index:41;right:0;top:0;height:100%;width:min(420px,100%);background:#10151e;border-left:1px solid var(--line);padding:24px;transform:translateX(105%);transition:.25s;display:flex;flex-direction:column}
+.drawer.show{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.close{background:var(--panel2);border:1px solid var(--line);color:white;width:38px;height:38px;border-radius:50%}
+.cart-items{overflow:auto;flex:1;margin:20px 0}
+.cart-line{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-line strong{font-size:13px}
+.cart-line small{display:block;color:var(--muted);margin-top:5px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+.qty button{background:var(--panel2);color:white;border:1px solid var(--line);border-radius:7px;width:25px;height:25px}
+.cart-total{border-top:1px solid var(--line);padding-top:18px}
+.totalrow{display:flex;justify-content:space-between;font-weight:850;font-size:18px;margin-bottom:16px}
+.checkout{width:100%;border:0;background:#25d366;color:#07140b;padding:14px;border-radius:12px;font-weight:900}
+.note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:12px}
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;padding-top:50px}
+.hero-art{min-height:300px}
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.wrap{width:calc(100% - 28px)}
+.nav{height:66px}
+.navlinks{display:none}
+.hero{padding:48px 0 34px}
+.hero h1{letter-spacing:-2px}
+.hero-art{min-height:260px}
+.perks{grid-template-columns:1fr;margin-bottom:42px}
+.filters{grid-template-columns:1fr}
+.section-head{align-items:start;flex-direction:column}
+.grid{gap:10px}
+.product-visual{height:135px}
+.part-icon{font-size:52px}
+.product-info{padding:12px}
+.product-info h3{font-size:14px}
+.price{font-size:16px}
+.about-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+<a class="brand" href="#">i <span>Genuine Part</span>.</a>
+<nav class="navlinks">
+<a href="#shop">Shop parts</a>
+<a href="#models">Models</a>
+<a href="#about">Why i Genuine Part</a>
+</nav>
+<button class="cartbtn" id="openCart">Cart <b id="cartCount">0</b></button>
+</div>
+</header>
+
+<main>
+<section class="wrap hero">
+<div>
+<div class="eyebrow">Precision parts. Better repairs.</div>
+<h1>Your iPhone.<br><em>Back in action.</em></h1>
+<p>Displays, batteries, cameras and essential replacement parts for iPhone models. Find the part you need and order directly with us.</p>
+<div class="actions">
+<a class="primary" href="#shop">Explore parts ↗</a>
+<a class="secondary" href="#about">About our store</a>
+</div>
+</div>
+<div class="hero-art">
+<div class="phone">
+<div class="camera"><i></i><i></i><i></i></div>
+</div>
+<div class="art-label">REPAIR • REPLACE • REPEAT</div>
+</div>
+</section>
+
+<section class="wrap perks">
+<div class="perk"><strong>✓ Model-wise parts</strong><span>Choose parts by your iPhone model</span></div>
+<div class="perk"><strong>↗ Direct ordering</strong><span>Send your cart on WhatsApp</span></div>
+<div class="perk"><strong>◇ Repair essentials</strong><span>Popular components in one place</span></div>
+</section>
+
+<section class="wrap shop" id="shop">
+<div class="section-head">
+<div><div class="eyebrow">The parts counter</div><h2>Find your replacement part</h2></div>
+<p id="resultCount">Showing all demo products</p>
+</div>
+
+<div class="filters">
+<input class="field" id="search" placeholder="Search display, battery, camera...">
+<select class="field" id="modelFilter"><option value="">All iPhone models</option></select>
+<select class="field" id="categoryFilter"><option value="">All categories</option></select>
+</div>
+<div class="grid" id="productGrid"></div>
+</section>
+
+<section class="about" id="about">
+<div class="wrap about-grid">
+<div>
+<div class="eyebrow">Welcome to i Genuine Part</div>
+<h2>Parts that help bring your phone back to life.</h2>
+<p>Find iPhone replacement parts. Select your model, add the parts you need and send your order enquiry on WhatsApp.</p>
+</div>
+<div class="about-card" id="models">
+<strong>Model coverage</strong>
+<ul>
+<li>iPhone 8 through iPhone 18 series</li>
+<li>Standard ,mini ,Plus, Pro and Pro Max variants</li>
+<li>Latest Duo model category</li>
+<li>Displays, batteries, cameras, flex cables and more</li>
+<li> Contact number 9810456380 </li>
+
+
+</ul>
+<small>Model availability and compatibility must be confirmed before dispatch.</small>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap foot">
+<span>© <span id="year"></span> i Genuine Part. All rights reserved.</span>
+<span>Independent parts store · Not affiliated with Apple Inc.</span>
+</div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer">
+<div class="drawer-head">
+<h2>Your cart</h2>
+<button class="close" id="closeCart">✕</button>
+</div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-total">
+<div class="totalrow"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+<button class="checkout" id="checkout">Order on WhatsApp</button>
+<div class="note">Sample products and prices are placeholders. Update them to match your actual inventory before publishing.</div>
+</div>
+</aside>
+
+<script>
+// YOUR WHATSAPP NUMBER
+const WHATSAPP_NUMBER = "919810456380";
+
+const models = [];
+for(let n=8;n<=18;n++){
+const base = `iPhone ${n}`;
+models.push(base,`${base} Plus`,`${base} Pro`,`${base} Pro Max`);
+}
+models.push("Latest Duo Model");
+
+const products = [
+{id:1,name:"OLED Display Assembly",category:"Display",icon:"▣",models:["iPhone 13 Pro","iPhone 14 Pro","iPhone 15 Pro"],price:5499,tag:"Popular"},
+{id:2,name:"Replacement Battery",category:"Battery",icon:"▰",models:["iPhone 11","iPhone 12","iPhone 13"],price:1499,tag:"Essential"},
+{id:3,name:"Rear Camera Module",category:"Camera",icon:"◉",models:["iPhone 12 Pro","iPhone 13 Pro","iPhone 14 Pro Max"],price:3299,tag:""},
+{id:4,name:"Charging Flex Cable",category:"Flex Cable",icon:"⌁",models:["iPhone 8","iPhone X","iPhone 11"],price:699,tag:""},
+{id:5,name:"Back Glass Panel",category:"Body",icon:"◇",models:["iPhone 13","iPhone 14","iPhone 15 Pro Max"],price:1199,tag:""},
+{id:6,name:"Earpiece Speaker",category:"Speaker",icon:"▤",models:["iPhone 12","iPhone 13","iPhone 14"],price:599,tag:""},
+{id:7,name:"Front Camera Flex",category:"Camera",icon:"◎",models:["iPhone 11 Pro","iPhone 12 Pro","iPhone 13 Pro"],price:1299,tag:""},
+{id:8,name:"Display Assembly",category:"Display",icon:"▣",models:["iPhone 16 Pro","iPhone 17 Pro","iPhone 18 Pro Max"],price:7999,tag:"New range"},
+{id:9,name:"Battery Pack",category:"Battery",icon:"▰",models:["iPhone 15","iPhone 16 Pro Max","Latest Duo Model"],price:2199,tag:""},
+{id:10,name:"Duo Model Display",category:"Display",icon:"▣",models:["Latest Duo Model"],price:8999,tag:"Duo range"}
+];
+
+const $=id=>document.getElementById(id);
+let cart=[];
+const money=n=>"₹"+n.toLocaleString("en-IN");
+
+function setupFilters(){
+models.forEach(m=>{
+const o=document.createElement("option");
+o.value=m;o.textContent=m;
+$("modelFilter").append(o);
+});
+[...new Set(products.map(p=>p.category))].sort().forEach(c=>{
+const o=document.createElement("option");
+o.value=c;o.textContent=c;
+$("categoryFilter").append(o);
+});
+}
+
+function renderProducts(){
+const q=$("search").value.toLowerCase().trim();
+const m=$("modelFilter").value;
+const c=$("categoryFilter").value;
+
+const list=products.filter(p=>
+(!q||(p.name+" "+p.category+" "+p.models.join(" ")).toLowerCase().includes(q))&&
+(!m||p.models.includes(m))&&
+(!c||p.category===c)
+);
+
+$("resultCount").textContent=`Showing ${list.length} demo products`;
+
+$("productGrid").innerHTML=list.length?
+list.map(p=>`
+<article class="product">
+<div class="product-visual">
+<span class="tag">${p.tag||p.category}</span>
+<div class="part-icon">${p.icon}</div>
+</div>
+<div class="product-info">
+<small>${p.category.toUpperCase()}</small>
+<h3>${p.name}</h3>
+<div class="fit">Fits: ${p.models.join(" · ")}</div>
+<div class="price-row">
+<span class="price">${money(p.price)}</span>
+<button class="add" onclick="addToCart(${p.id})">+ Add</button>
+</div>
+</div>
+</article>`).join("") :
+`<div class="empty">No matching parts found.</div>`;
+}
+
+function addToCart(id){
+const p=products.find(x=>x.id===id);
+const item=cart.find(x=>x.id===id);
+if(item)item.qty++;
+else cart.push({...p,qty:1});
+renderCart();
+openDrawer();
+}
+
+function changeQty(id,d){
+const item=cart.find(x=>x.id===id);
+if(!item)return;
+item.qty+=d;
+if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
+renderCart();
+}
+
+function renderCart(){
+$("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
+
+$("cartItems").innerHTML=cart.length?
+cart.map(x=>`
+<div class="cart-line">
+<div>
+<strong>${x.name}</strong>
+<small>${x.category} · ${money(x.price)} each</small>
+<div class="qty">
+<button onclick="changeQty(${x.id},-1)">−</button>
+<span>${x.qty}</span>
+<button onclick="changeQty(${x.id},1)">+</button>
+</div>
+</div>
+<strong>${money(x.price*x.qty)}</strong>
+</div>`).join("") :
+`<div class="empty">Your cart is empty.</div>`;
+
+$("cartTotal").textContent=money(cart.reduce((s,x)=>s+x.price*x.qty,0));
+}
+
+function openDrawer(){
+$("overlay").classList.add("show");
+$("drawer").classList.add("show");
+}
+
+function closeDrawer(){
+$("overlay").classList.remove("show");
+$("drawer").classList.remove("show");
+}
+
+$("openCart").onclick=openDrawer;
+$("closeCart").onclick=closeDrawer;
+$("overlay").onclick=closeDrawer;
+
+$("search").addEventListener("input",renderProducts);
+$("modelFilter").addEventListener("change",renderProducts);
+$("categoryFilter").addEventListener("change",renderProducts);
+
+$("checkout").onclick=()=>{
+if(!cart.length){
+alert("Your cart is empty.");
+return;
+}
+
+const lines=cart.map(x=>
+`${x.name} (${x.qty} x ${money(x.price)})`
+).join("\n");
+
+const total=money(cart.reduce((s,x)=>s+x.price*x.qty,0));
+
+const msg=`Hello, I want to enquire about these iPhone parts:
+
+${lines}
+
+Subtotal: ${total}
+
+Please confirm stock, model compatibility and delivery.`;
+
+window.open(
+`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
+"_blank"
+);
+};
+
+$("year").textContent=new Date().getFullYear();
+
+setupFilters();
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
+
